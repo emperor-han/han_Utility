@@ -40,6 +40,15 @@ function page(all, lis, c, li_counts) {
     }
   }
 
+  //如果是第一页的话，就让上一页的按钮隐藏
+  if(c == 0){
+    lis[0].classList.add('hide');
+  }
+  //如果是最后一页的话就让下一页的按钮隐藏
+  if(c == all-1){
+    lis[lis.length-1].classList.add('hide');
+  }
+
   function changePage(count, j) {
     //关于这里要用 t 这个变量的原因是：因为这个函数中有两个形参，而在上面代码调用这个函数时，有时传入一个参数，有时传入两个参数，如果没有传入参数 j，那么后面 href 中就会使用 i的值没如果传入变量 j，那么 href 中就会使用 j 的值，所以就使用一个变量来接受一个值，当传入 j 时，它的值为 j，没有传入时，它的值为 i。
     var t;
